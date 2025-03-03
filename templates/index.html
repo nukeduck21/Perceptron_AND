@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perceptrón Simple - Compuerta AND</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Simulador de Perceptrón (Compuerta AND)</h1>
+        <form method="POST">
+            <label for="iterations">Número de iteraciones: <span id="iteration-value">{{ iterations }}</span></label>
+            <input type="range" id="iterations" name="iterations" min="1" max="500" value="{{ iterations }}" oninput="updateIterations(this.value)">
+            <br><br>
+            <label for="w1">Peso inicial W1: </label>
+            <input type="number" id="w1" name="w1" step="0.01" placeholder="Ej. 0.49" value="{{ initial_w1 }}">
+            <label for="w2">Peso inicial W2: </label>
+            <input type="number" id="w2" name="w2" step="0.01" placeholder="Ej. 0.21" value="{{ initial_w2 }}">
+            <label for="bias">Sesgo inicial: </label>
+            <input type="number" id="bias" name="bias" step="0.01" placeholder="Ej. -0.67" value="{{ initial_bias }}">
+            <br><br>
+            <button type="submit" name="action" value="train" class="train-button">Entrenar Perceptrón</button>
+            <button type="submit" name="action" value="test_and" class="test-and-button">Evaluar AND</button>
+            <div class="custom-input">
+                <input type="number" name="input1" step="0.1" placeholder="Entrada 1 (0-1)" value="{{ custom_input1 }}">
+                <input type="number" name="input2" step="0.1" placeholder="Entrada 2 (0-1)" value="{{ custom_input2 }}">
+                <button type="submit" name="action" value="test_custom" class="test-custom-button">Evaluar Personalizado</button>
+            </div>
+        </form>
+        <div id="output" class="output-dark">
+            <pre>{{ output }}</pre>
+            {% if graph_path and graph_path != None %}
+                <img src="{{ url_for('serve_plot') }}" alt="Gráfica del error" class="error-plot">
+            {% endif %}
+        </div>
+    </div>
+    <script>
+        function updateIterations(value) {
+            document.getElementById("iteration-value").textContent = value;
+        }
+    </script>
+</body>
+</html>

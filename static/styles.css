@@ -1,0 +1,88 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    display: flex;
+    justify-content: center;
+}
+
+.container {
+    margin-top: 50px;
+    text-align: center;
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.train-button {
+    margin: 10px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: #4CAF50; /* Verde */
+    color: white;
+    border: none;
+    border-radius: 5px;
+}
+
+.train-button:hover {
+    background-color: #45a049;
+}
+
+.test-and-button, .test-custom-button {
+    margin: 10px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: #2196F3; /* Azul */
+    color: white;
+    border: none;
+    border-radius: 5px;
+}
+
+.test-and-button:hover, .test-custom-button:hover {
+    background-color: #1976D2;
+}
+
+.custom-input {
+    margin: 10px 0;
+}
+
+.custom-input input {
+    padding: 5px;
+    margin: 5px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+#iterations {
+    width: 200px;
+    margin: 10px;
+}
+
+.initial-weights input {
+    padding: 5px;
+    margin: 5px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    width: 80px;
+}
+
+#output.output-dark {
+    margin-top: 20px;
+    text-align: left;
+    padding: 10px;
+    background-color: #1a1a1a; /* Fondo oscuro */
+    color: #ffffff; /* Texto blanco */
+    border: 1px solid #333;
+    border-radius: 5px;
+    font-family: monospace;
+}
+
+.error-plot {
+    max-width: 100%;
+    height: auto;
+    margin-top: 10px;
+    border: 1px solid #333;
+    border-radius: 5px;
+}
